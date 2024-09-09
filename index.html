@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokedex</title>
+
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/colors.css" />
+    <link rel="stylesheet" href="./styles/pokecard.css" />
+    <link rel="stylesheet" href="./styles/overlay.css" />
+    <link rel="stylesheet" href="./styles/fonts.css" />
+
+    <script src="./scripts/data.js"></script>
+    <script src="./scripts/layout.js"></script>
   </head>
-  <body></body>
+  <body onload="init()">
+    <header></header>
+    <main>
+      <h1>Gotta catch'em all!</h1>
+      <section id="poke-cards" class="poke-grid"></section>
+      <button>Show me more</button>
+    </main>
+    <footer></footer>
+    <script src="./scripts/script.js"></script>
+  </body>
 </html>

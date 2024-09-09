@@ -1,0 +1,17 @@
+:root {
+  --bg-200: #f2f2f2;
+  --bg-500: #8596a6;
+  --bg-800: #4d6473;
+  --accent: #f25c84;
+  --accent-hover: #d54269;
+  --water: #d6f1f8;
+  --fire: #fae2c0;
+  --grass: #d8f3a4;
+  --psychic: #fae4f9;
+  --ghost: #d2e3fd;
+  --poison: #f7d3d3;
+}
+
+.bg-grass {
+  background-color: var(--grass);
+}
