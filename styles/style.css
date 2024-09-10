@@ -9,31 +9,21 @@ body {
   align-items: center;
   justify-content: center;
   background-color: var(--bg-200);
-  font-family: "robotoregular";
-}
-
-header {
-  background-color: var(--bg-200);
-  display: flex;
-  position: sticky;
-  height: 90px;
-  align-items: center;
-  justify-content: space-between;
+  font-family: "robotolight";
 }
 
 main {
-  width: 100vw;
-  flex-grow: 1;
+  margin-top: 90px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   max-width: 1440px;
-  background-color: var(--bg-800);
   text-align: center;
+  padding: 70px 50px 0px 50px;
 }
 
 footer {
-  background-color: white;
+  background-color: var(--bg-800);
   display: flex;
   width: 100%;
   bottom: 0px;
@@ -51,4 +41,47 @@ button {
   font-size: 20pt;
   padding: 10px 30px;
   margin: 30px 0px 60px 0px;
+  cursor: pointer;
+}
+
+input {
+  height: 40px;
+  width: 400px;
+  font-family: "robotolight";
+  font-size: 12pt;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 0px;
+  background-color: white;
+  border: none;
+  padding: 0px 20px;
+  color: black;
+}
+
+.btn-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 60px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 20px;
+  margin: 0px;
+  color: white;
+}
+
+.icon-search {
+  width: 30px;
+  height: 30px;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+::placeholder {
+  color: var(--bg-500);
 }

@@ -1,31 +1,7 @@
 @font-face {
-  font-family: "bangersregular";
-  src: url("../assets/fonts/bangers-regular-webfont.woff2") format("woff2"),
-    url("../assets/fonts/bangers-regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "robotoblack";
   src: url("../assets/fonts/roboto-black-webfont.woff2") format("woff2"),
     url("../assets/fonts/roboto-black-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "robotoblack_italic";
-  src: url("../assets/fonts/roboto-blackitalic-webfont.woff2") format("woff2"),
-    url("../assets/fonts/roboto-blackitalic-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "robotoitalic";
-  src: url("../assets/fonts/roboto-italic-webfont.woff2") format("woff2"),
-    url("../assets/fonts/roboto-italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -47,14 +23,6 @@
 }
 
 @font-face {
-  font-family: "robotoregular";
-  src: url("../assets/fonts/roboto-regular-webfont.woff2") format("woff2"),
-    url("../assets/fonts/roboto-regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "roboto_monoregular";
   src: url("../assets/fonts/robotomono-variablefont_wght-webfont.woff2")
       format("woff2"),
@@ -65,9 +33,27 @@
 }
 
 h1 {
-  font-family: "bangersregular";
-  color: yellow;
-  -webkit-text-stroke: 2px blue;
+  font-family: "robotoblack";
+  color: var(--bg-800);
   font-size: 45pt;
   text-align: center;
+}
+
+h2 {
+  font-family: "robotoblack";
+  color: var(--bg-800);
+  font-size: 22pt;
+  text-align: center;
+}
+
+h3 {
+  font-family: "robotoblack";
+  color: var(--bg-800);
+  font-size: 22pt;
+}
+
+h4 {
+  font-family: "robotolight";
+  text-transform: uppercase;
+  font-size: 14pt;
 }

@@ -12,6 +12,22 @@
   --poison: #f7d3d3;
 }
 
+.bg-normal {
+  background-color: var(--bg-200);
+}
+
 .bg-grass {
   background-color: var(--grass);
+}
+
+.bg-fire {
+  background-color: var(--fire);
+}
+
+.bg-water {
+  background-color: var(--water);
+}
+
+.bg-bug {
+  background-color: var(--poison);
 }

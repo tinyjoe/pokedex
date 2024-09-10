@@ -5,23 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokedex</title>
 
+    <link
+      rel="shortcut icon"
+      href="./assets/logo/logo_pokedex.svg"
+      type="image/x-icon"
+    />
+
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/colors.css" />
     <link rel="stylesheet" href="./styles/pokecard.css" />
     <link rel="stylesheet" href="./styles/overlay.css" />
     <link rel="stylesheet" href="./styles/fonts.css" />
+    <link rel="stylesheet" href="./styles/header+footer.css" />
 
+    <script src="./scripts/script.js"></script>
     <script src="./scripts/data.js"></script>
     <script src="./scripts/layout.js"></script>
   </head>
   <body onload="init()">
-    <header></header>
+    <header>
+      <div class="header-content">
+        <div class="header-title"><h3>Pokedex</h3></div>
+        <img class="header-logo" src="./assets/logo/logo_pokedex.svg" />
+        <div class="search-bar">
+          <input type="search" placeholder="Search for a Pokemon" />
+          <button class="btn-search">
+            <img class="icon-search" src="./assets/icons/search.svg" />
+          </button>
+        </div>
+      </div>
+    </header>
     <main>
       <h1>Gotta catch'em all!</h1>
+      <h4>Der ultimative Guide über alle Pokemon</h4>
       <section id="poke-cards" class="poke-grid"></section>
       <button>Show me more</button>
     </main>
     <footer></footer>
-    <script src="./scripts/script.js"></script>
   </body>
 </html>
