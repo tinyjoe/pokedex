@@ -4,32 +4,18 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: var(--bg-200);
   font-family: "robotolight";
 }
 
 main {
-  margin-top: 90px;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   max-width: 1440px;
   text-align: center;
-  padding: 70px 50px 0px 50px;
-}
-
-footer {
-  background-color: var(--bg-800);
-  display: flex;
-  width: 100%;
-  bottom: 0px;
-  height: 90px;
-  align-items: center;
-  justify-content: space-between;
+  padding: 0px 50px 0px 50px;
 }
 
 button {
@@ -59,6 +45,41 @@ input {
   color: black;
 }
 
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+::placeholder {
+  color: var(--bg-500);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.header-img {
+  display: flex;
+  height: 600px;
+  background-image: url(../assets/pokedex_header.jpg);
+  background-position: center;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  opacity: 0.3;
+}
+
+.top-section {
+  display: flex;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 600px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
 .btn-search {
   display: flex;
   align-items: center;
@@ -78,10 +99,17 @@ input {
   height: 30px;
 }
 
-button:hover {
-  background-color: var(--accent-hover);
-}
-
-::placeholder {
-  color: var(--bg-500);
+.overlay {
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: #131c23bc;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px;
 }

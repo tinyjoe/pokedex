@@ -1,0 +1,8 @@
+.poke-detail-container {
+  z-index: 40;
+  display: flex;
+  position: relative;
+  width: 40%;
+  height: 80%;
+  border-radius: 30px;
+}

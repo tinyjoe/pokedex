@@ -10,9 +10,25 @@
   --psychic: #fae4f9;
   --ghost: #d2e3fd;
   --poison: #f7d3d3;
+  --fighting: #c29ed5;
+  --flying: #b2cbf4;
+  --ground: #e6d6be;
+  --rock: #d4d4d4;
+  --bug: #fecdca;
+  --steel: #cce3de;
+  --electric: #fcffba;
+  --ice: #b5ffee;
+  --dragon: #ffb3c7;
+  --dark: #989898;
+  --fairy: #b1ffe8;
+  --stellar: #fffdb5;
 }
 
 .bg-normal {
+  background-color: var(--bg-500);
+}
+
+.bg-unknown {
   background-color: var(--bg-200);
 }
 
@@ -29,5 +45,61 @@
 }
 
 .bg-bug {
+  background-color: var(--bug);
+}
+
+.bg-psychic {
+  background-color: var(--psychic);
+}
+
+.bg-ghost {
+  background-color: var(--ghost);
+}
+
+.bg-poison {
   background-color: var(--poison);
+}
+
+.bg-fighting {
+  background-color: var(--fighting);
+}
+
+.bg-flying {
+  background-color: var(--flying);
+}
+
+.bg-ground {
+  background-color: var(--ground);
+}
+
+.bg-rock {
+  background-color: var(--rock);
+}
+
+.bg-steel {
+  background-color: var(--steel);
+}
+
+.bg-electric {
+  background-color: var(--electric);
+}
+
+.bg-ice {
+  background-color: var(--ice);
+}
+
+.bg-dragon {
+  background-color: var(--dragon);
+}
+
+.bg-dark {
+  background-color: var(--dark);
+}
+
+.bg-fairy {
+  background-color: var(--fairy);
+}
+
+.bg-stellar {
+  background-color: var(--stellar);
 }

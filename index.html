@@ -7,7 +7,7 @@
 
     <link
       rel="shortcut icon"
-      href="./assets/logo/logo_pokedex.svg"
+      href="./assets/logo/favicon_pokedex.svg"
       type="image/x-icon"
     />
 
@@ -25,8 +25,10 @@
   <body onload="init()">
     <header>
       <div class="header-content">
-        <div class="header-title"><h3>Pokedex</h3></div>
-        <img class="header-logo" src="./assets/logo/logo_pokedex.svg" />
+        <div class="header-title">
+          <img class="menu-logo" src="./assets/logo/logo_pokedex.svg" />
+          <h3>Pokedex</h3>
+        </div>
         <div class="search-bar">
           <input type="search" placeholder="Search for a Pokemon" />
           <button class="btn-search">
@@ -35,12 +37,41 @@
         </div>
       </div>
     </header>
+
+    <section class="header-img"></section>
     <main>
-      <h1>Gotta catch'em all!</h1>
-      <h4>Der ultimative Guide über alle Pokemon</h4>
+      <div class="top-section">
+        <img class="header-logo" src="./assets/logo/logo_pokedex.svg" />
+        <div>
+          <h1>Gotta catch'em all!</h1>
+          <h4>Der ultimative Guide über alle Pokemon</h4>
+        </div>
+        <div class="search-bar">
+          <input type="search" placeholder="Search for a Pokemon" />
+          <button class="btn-search">
+            <img class="icon-search" src="./assets/icons/search.svg" />
+          </button>
+        </div>
+      </div>
+
       <section id="poke-cards" class="poke-grid"></section>
-      <button>Show me more</button>
+      <button onclick="loadMorePokemons()">Show me more</button>
     </main>
-    <footer></footer>
+
+    <div
+      id="overlay-window"
+      class="overlay hidden"
+      onclick="closePokeDetailDialog(event)"
+    >
+      <div class="poke-detail-container bg-grass">
+        <div>
+          <h3>Charmander</h3>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <h3>This is the footer</h3>
+    </footer>
   </body>
 </html>
