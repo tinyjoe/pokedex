@@ -11,3 +11,16 @@ async function getAllPokemons(limit) {
   }
   return currPokeArray;
 }
+
+async function getPokemonDetails(id) {
+  let currPokeObject = {};
+  let generalResponse = await fetch(BASE_URL + `pokemon/${id}/`);
+  let general = await generalResponse.json();
+  currPokeObject.general = general;
+  console.log(currPokeObject);
+  let speciesResponse = await fetch(BASE_URL + `pokemon-species/${id}/`);
+  let species = await speciesResponse.json();
+  currPokeObject.species = species;
+  console.log(currPokeObject);
+  return currPokeObject;
+}

@@ -51,10 +51,30 @@ h3 {
   font-family: "robotoblack";
   color: var(--bg-800);
   font-size: 22pt;
+  text-align: center;
 }
 
 h4 {
   font-family: "robotolight";
   text-transform: uppercase;
   font-size: 14pt;
+}
+
+.small-print {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 12px;
+  font-family: "robotolight", sans-serif;
+  color: white;
+}
+
+.small-info {
+  text-align: center;
+  font-size: 12px;
+  font-family: "robotolight", sans-serif;
+  color: var(--bg-500);
+  text-transform: uppercase;
 }

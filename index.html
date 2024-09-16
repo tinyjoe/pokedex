@@ -22,7 +22,7 @@
     <script src="./scripts/data.js"></script>
     <script src="./scripts/layout.js"></script>
   </head>
-  <body onload="init()">
+  <body onload="init()" id="main-content">
     <header>
       <div class="header-content">
         <div class="header-title">
@@ -38,40 +38,135 @@
       </div>
     </header>
 
-    <section class="header-img"></section>
     <main>
-      <div class="top-section">
-        <img class="header-logo" src="./assets/logo/logo_pokedex.svg" />
-        <div>
-          <h1>Gotta catch'em all!</h1>
-          <h4>Der ultimative Guide über alle Pokemon</h4>
+      <section class="header-img"></section>
+      <section class="main-content">
+        <div class="top-section">
+          <img class="header-logo" src="./assets/logo/logo_pokedex.svg" />
+          <div>
+            <h1>Gotta catch'em all!</h1>
+            <h4>Der ultimative Guide über alle Pokemon</h4>
+          </div>
+          <div class="search-bar">
+            <input type="search" placeholder="Search for a Pokemon" />
+            <button class="btn-search">
+              <img class="icon-search" src="./assets/icons/search.svg" />
+            </button>
+          </div>
         </div>
-        <div class="search-bar">
-          <input type="search" placeholder="Search for a Pokemon" />
-          <button class="btn-search">
-            <img class="icon-search" src="./assets/icons/search.svg" />
-          </button>
-        </div>
-      </div>
-
-      <section id="poke-cards" class="poke-grid"></section>
-      <button onclick="loadMorePokemons()">Show me more</button>
+        <section id="poke-cards" class="poke-grid"></section>
+        <button onclick="loadMorePokemons()">Show me more</button>
+      </section>
     </main>
 
-    <div
+    <section
       id="overlay-window"
       class="overlay hidden"
       onclick="closePokeDetailDialog(event)"
     >
-      <div class="poke-detail-container bg-grass">
-        <div>
-          <h3>Charmander</h3>
+      <div class="overlay-content">
+        <div class="nav-button" onclick="showPreviousPokemon()">
+          <img class="nav-icon" src="./assets/icons/arrow-back.svg" />
+        </div>
+        <div class="poke-detail-container">
+          <div class="poke-detail-bg bg-grass">
+            <p class="poke-detail-id">#123</p>
+          </div>
+          <div class="poke-detail-img">
+            <img />
+          </div>
+          <div class="poke-detail-info">
+            <h3>Charmander</h3>
+            <div class="poke-type-row">
+              <div class="poke-detail-type">
+                <div class="poke-type-icon bg-${pokeType}">
+                  <img
+                    class="type-icon"
+                    src="../assets/icons/${pokeType}.svg"
+                  />
+                </div>
+                <p class="small-info">type</p>
+              </div>
+            </div>
+            <div class="poke-tabs">
+              <div class="selected-tab" id="general-tab">General</div>
+              <div class="default-tab" id="stats-tab">Stats</div>
+              <div class="default-tab" id="general-tab">Evolution</div>
+            </div>
+            <div class="tab-content">
+              <table>
+                <tr>
+                  <td>Height</td>
+                  <td>xxx</td>
+                </tr>
+                <tr>
+                  <td>Weight</td>
+                  <td>xxx</td>
+                </tr>
+                <tr>
+                  <td>Abilities</td>
+                  <td>xxx</td>
+                </tr>
+                <tr>
+                  <td>Base experience</td>
+                  <td>xxx</td>
+                </tr>
+                <tr>
+                  <td>Moves</td>
+                  <td>xxx</td>
+                </tr>
+              </table>
+            </div>
+            <div class="mobile-nav">
+              <div class="mobile-nav-button" onclick="showPreviousPokemon()">
+                <img class="nav-icon" src="./assets/icons/arrow-back.svg" />
+              </div>
+              <div class="mobile-nav-button" onclick="showNextPokemon()">
+                <img class="nav-icon" src="./assets/icons/arrow-forward.svg" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-button" onclick="showNextPokemon()">
+          <img class="nav-icon" src="./assets/icons/arrow-forward.svg" />
         </div>
       </div>
-    </div>
+    </section>
 
-    <footer>
-      <h3>This is the footer</h3>
+    <footer class="footer-mobile">
+      <div class="logo-row">
+        <a href="#header"
+          ><img class="footer-logo" src="./assets/logo/tj_logo_white.svg"
+        /></a>
+        <a href="https://developerakademie.com/" target="_blank"
+          ><img class="footer-da-logo" src="./assets/logo/da_logo_white.svg"
+        /></a>
+      </div>
+      <div class="small-print">
+        <span>©2024 Tina Jölly - Student of Developer Academy GmbH</span>
+        <span
+          >All information retrieved from
+          <a href="https://pokeapi.co/">PokèAPI</a></span
+        >
+      </div>
+    </footer>
+
+    <footer class="hidden-mobile">
+      <div class="footer-content">
+        <a href="#header"
+          ><img class="footer-logo" src="./assets/logo/tj_logo_white.svg"
+        /></a>
+        <div class="small-print">
+          <span>©2024 Tina Jölly - Student of Developer Academy GmbH</span>
+          <span
+            >All information retrieved from
+            <a href="https://pokeapi.co/">PokèAPI</a></span
+          >
+        </div>
+        <a href="https://developerakademie.com/" target="_blank"
+          ><img class="footer-da-logo" src="./assets/logo/da_logo_white.svg"
+        /></a>
+      </div>
     </footer>
   </body>
 </html>

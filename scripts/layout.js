@@ -1,6 +1,6 @@
 function getPokeCardTypesTemplate(pokeType) {
   return `<div class="poke-type-icon bg-${pokeType}">
-  <img class="type-icon" src="../assets/icons/${pokeType}.svg"
+    <img class="type-icon" src="../assets/icons/${pokeType}.svg"/>
   </div>`;
 }
 
@@ -36,4 +36,8 @@ function getPokeCardTypes(pokeIndex, types) {
 function clearPokeCards() {
   let card = document.getElementById("poke-cards");
   card.innerHTML = "";
+}
+
+function getPokemonDetailTemplate(pokeIndex) {
+  return ``;
 }

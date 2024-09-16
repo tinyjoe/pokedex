@@ -14,14 +14,20 @@ async function loadMorePokemons() {
 }
 
 function closePokeDetailDialog(event) {
+  toggleOverlay();
   let overlay = document.getElementById("overlay-window");
-  overlay.classList.add("hidden");
   overlay.innerHTML = "";
   event.stopPropagation();
 }
 
 function showPokeDetailDialog(event, index) {
-  let overlay = document.getElementById("overlay-window");
-  overlay.classList.remove("hidden");
+  toggleOverlay();
   event.stopPropagation();
+}
+
+function toggleOverlay() {
+  let overlay = document.getElementById("overlay-window");
+  let content = document.getElementById("main-content");
+  overlay.classList.toggle("hidden");
+  content.classList.toggle("no-scroll");
 }
