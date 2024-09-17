@@ -1,6 +1,25 @@
 const BASE_URL = "https://pokeapi.co/api/v2/";
 
 let pokeArray = [];
+let currPokemon = {};
+
+let tabArray = [
+  {
+    active: "general",
+    inactive1: "stats",
+    inactive2: "species",
+  },
+  {
+    active: "stats",
+    inactive1: "general",
+    inactive2: "species",
+  },
+  {
+    active: "species",
+    inactive1: "stats",
+    inactive2: "general",
+  },
+];
 
 async function getAllPokemons(limit) {
   let currPokeArray = [];
@@ -17,10 +36,8 @@ async function getPokemonDetails(id) {
   let generalResponse = await fetch(BASE_URL + `pokemon/${id}/`);
   let general = await generalResponse.json();
   currPokeObject.general = general;
-  console.log(currPokeObject);
   let speciesResponse = await fetch(BASE_URL + `pokemon-species/${id}/`);
   let species = await speciesResponse.json();
   currPokeObject.species = species;
-  console.log(currPokeObject);
   return currPokeObject;
 }

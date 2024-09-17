@@ -21,6 +21,7 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/data.js"></script>
     <script src="./scripts/layout.js"></script>
+    <script src="./scripts/tabs.js"></script>
   </head>
   <body onload="init()" id="main-content">
     <header>
@@ -63,75 +64,7 @@
       id="overlay-window"
       class="overlay hidden"
       onclick="closePokeDetailDialog(event)"
-    >
-      <div class="overlay-content">
-        <div class="nav-button" onclick="showPreviousPokemon()">
-          <img class="nav-icon" src="./assets/icons/arrow-back.svg" />
-        </div>
-        <div class="poke-detail-container">
-          <div class="poke-detail-bg bg-grass">
-            <p class="poke-detail-id">#123</p>
-          </div>
-          <div class="poke-detail-img">
-            <img />
-          </div>
-          <div class="poke-detail-info">
-            <h3>Charmander</h3>
-            <div class="poke-type-row">
-              <div class="poke-detail-type">
-                <div class="poke-type-icon bg-${pokeType}">
-                  <img
-                    class="type-icon"
-                    src="../assets/icons/${pokeType}.svg"
-                  />
-                </div>
-                <p class="small-info">type</p>
-              </div>
-            </div>
-            <div class="poke-tabs">
-              <div class="selected-tab" id="general-tab">General</div>
-              <div class="default-tab" id="stats-tab">Stats</div>
-              <div class="default-tab" id="general-tab">Evolution</div>
-            </div>
-            <div class="tab-content">
-              <table>
-                <tr>
-                  <td>Height</td>
-                  <td>xxx</td>
-                </tr>
-                <tr>
-                  <td>Weight</td>
-                  <td>xxx</td>
-                </tr>
-                <tr>
-                  <td>Abilities</td>
-                  <td>xxx</td>
-                </tr>
-                <tr>
-                  <td>Base experience</td>
-                  <td>xxx</td>
-                </tr>
-                <tr>
-                  <td>Moves</td>
-                  <td>xxx</td>
-                </tr>
-              </table>
-            </div>
-            <div class="mobile-nav">
-              <div class="mobile-nav-button" onclick="showPreviousPokemon()">
-                <img class="nav-icon" src="./assets/icons/arrow-back.svg" />
-              </div>
-              <div class="mobile-nav-button" onclick="showNextPokemon()">
-                <img class="nav-icon" src="./assets/icons/arrow-forward.svg" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="nav-button" onclick="showNextPokemon()">
-          <img class="nav-icon" src="./assets/icons/arrow-forward.svg" />
-        </div>
-      </div>
-    </section>
+    ></section>
 
     <footer class="footer-mobile">
       <div class="logo-row">

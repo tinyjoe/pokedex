@@ -52,6 +52,7 @@ h3 {
   color: var(--bg-800);
   font-size: 22pt;
   text-align: center;
+  text-transform: capitalize;
 }
 
 h4 {
@@ -71,10 +72,18 @@ h4 {
   color: white;
 }
 
+label,
 .small-info {
   text-align: center;
   font-size: 12px;
   font-family: "robotolight", sans-serif;
   color: var(--bg-500);
   text-transform: uppercase;
+}
+
+.details {
+  text-align: start;
+  font-size: 14pt;
+  font-family: "roboto_monoregular", sans-serif;
+  color: var(--bg-800);
 }
