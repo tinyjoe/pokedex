@@ -3,24 +3,6 @@ const BASE_URL = "https://pokeapi.co/api/v2/";
 let pokeArray = [];
 let currPokemon = {};
 
-let tabArray = [
-  {
-    active: "general",
-    inactive1: "stats",
-    inactive2: "species",
-  },
-  {
-    active: "stats",
-    inactive1: "general",
-    inactive2: "species",
-  },
-  {
-    active: "species",
-    inactive1: "stats",
-    inactive2: "general",
-  },
-];
-
 async function getAllPokemons(limit) {
   let currPokeArray = [];
   for (let i = 1; i <= limit; i++) {

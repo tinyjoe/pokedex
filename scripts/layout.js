@@ -58,81 +58,8 @@ function clearPokeCards() {
   card.innerHTML = "";
 }
 
-function getGeneralTabTemplate(height, weight, exp, captureRate) {
-  let abilities = getAbilitiesOfPokemon(pokemon.general.abilities);
-  return `<table>
-                <tr>
-                  <td>Height</td>
-                  <td>${height}</td>
-                </tr>
-                <tr>
-                  <td>Weight</td>
-                  <td>${weight}</td>
-                </tr>
-                <tr>
-                  <td>Abilities</td>
-                  <td>${abilities}</td>
-                </tr>
-                <tr>
-                  <td>Base experience</td>
-                  <td>${exp}</td>
-                </tr>
-                <tr>
-                  <td>Capture rate</td>
-                  <td>${captureRate}</td>
-                </tr>
-              </table>`;
-}
-
-function getPokeStatsTemplate() {
-  return `<div class="stats-row">
-                <label for="file">Name</label>
-                <div class="stats-progress">
-                  <p class="details">12</p>
-                  <progress id="file" value=12 max="100"></progress>
-                </div>
-              </div>`;
-}
-
-function getSpeciesTabTemplate(
-  color,
-  shape,
-  habitat,
-  growth,
-  generation,
-  evolution
-) {
-  return `<table>
-                <tr>
-                  <td>Color</td>
-                  <td>${color}</td>
-                </tr>
-                <tr>
-                  <td>Shape</td>
-                  <td>${shape}</td>
-                </tr>
-                <tr>
-                  <td>Habitat</td>
-                  <td>${habitat}</td>
-                </tr>
-                <tr>
-                  <td>Growth rate</td>
-                  <td>${growth}</td>
-                </tr>
-                <tr>
-                  <td>Generation</td>
-                  <td>${generation}</td>
-                </tr>
-                <tr>
-                  <td>Evolves from</td>
-                  <td>${evolution}</td>
-                </tr>
-              </table>`;
-}
-
 function getPokemonDetailTemplate(pokemon) {
   let abilities = getAbilitiesOfPokemon(pokemon.general.abilities);
-  let index = pokemon.general.id - 1;
   return `<div class="overlay-content">
           <div class="poke-detail-container">
             <div class="poke-detail-bg bg-${pokemon.general.types[0].type.name}">
@@ -146,29 +73,13 @@ function getPokemonDetailTemplate(pokemon) {
               <div class="poke-details-type-row" id="poke-detail-types">
               </div>
               <div class="poke-tabs">
-                <div
-                  class="selected-tab"
+                <button
                   id="general-tab"
-                  onclick="renderGeneralTabLayout(event, ${pokemon})"
+                  onclick="toggleTabContent(event, 'general')"
                 >
                   General
-                </div>
-                <div
-                  class="default-tab"
-                  id="stats-tab"
-                  onclick="renderStatsTabLayout(event, ${pokemon.general.stats})"
-                >
-                  Stats
-                </div>
-                <div
-                  class="default-tab"
-                  id="species-tab"
-                  onclick="renderSpeciesTabLayout(event, ${pokemon})"
-                >
-                  Species
-                </div>
-              </div>
-              <div class="tab-content" id="tab-content">
+                </button>
+                <div class="tab-content hidden" id="general">
               <table>
                 <tr>
                   <td>Height</td>
@@ -192,14 +103,102 @@ function getPokemonDetailTemplate(pokemon) {
                 </tr>
               </table>
               </div>
+
+                <button
+                  id="stats-tab"
+                  onclick="toggleTabContent(event, 'stats')"
+                >
+                  Stats
+                </button>
+                <div class="tab-content hidden" id="stats">
+                <div class="stats-row">
+                  <label for="file">${pokemon.general.stats[0].stat.name}</label>
+                  <div class="stats-progress">
+                    <p class="details">${pokemon.general.stats[0].base_stat}</p>
+                    <progress id="file" value=${pokemon.general.stats[0].base_stat} max="100"></progress>
+                  </div>
+                </div>
+                <div class="stats-row">
+                  <label for="file">${pokemon.general.stats[1].stat.name}</label>
+                  <div class="stats-progress">
+                    <p class="details">${pokemon.general.stats[1].base_stat}</p>
+                    <progress id="file" value=${pokemon.general.stats[1].base_stat} max="100"></progress>
+                  </div>
+                </div>
+                <div class="stats-row">
+                  <label for="file">${pokemon.general.stats[2].stat.name}</label>
+                  <div class="stats-progress">
+                    <p class="details">${pokemon.general.stats[2].base_stat}</p>
+                    <progress id="file" value=${pokemon.general.stats[2].base_stat} max="100"></progress>
+                  </div>
+                </div>
+                <div class="stats-row">
+                  <label for="file">${pokemon.general.stats[3].stat.name}</label>
+                  <div class="stats-progress">
+                    <p class="details">${pokemon.general.stats[3].base_stat}</p>
+                    <progress id="file" value=${pokemon.general.stats[3].base_stat} max="100"></progress>
+                  </div>
+                </div>
+                <div class="stats-row">
+                  <label for="file">${pokemon.general.stats[4].stat.name}</label>
+                  <div class="stats-progress">
+                    <p class="details">${pokemon.general.stats[4].base_stat}</p>
+                    <progress id="file" value=${pokemon.general.stats[4].base_stat} max="100"></progress>
+                  </div>
+                </div>
+                <div class="stats-row">
+                  <label for="file">${pokemon.general.stats[5].stat.name}</label>
+                  <div class="stats-progress">
+                    <p class="details">${pokemon.general.stats[5].base_stat}</p>
+                    <progress id="file" value=${pokemon.general.stats[5].base_stat} max="100"></progress>
+                  </div>
+                </div>
+              </div>
+
+                <button
+                  id="species-tab"
+                  onclick="toggleTabContent(event, 'species')"
+                >
+                  Species
+                </button>
+              <div class="tab-content hidden" id="species">
+                <table>
+                <tr>
+                  <td>Color</td>
+                  <td>${pokemon.species.color.name}</td>
+                </tr>
+                <tr>
+                  <td>Shape</td>
+                  <td>${pokemon.species.shape.name}</td>
+                </tr>
+                <tr>
+                  <td>Habitat</td>
+                  <td>${pokemon.species.habitat.name}</td>
+                </tr>
+                <tr>
+                  <td>Growth rate</td>
+                  <td>${pokemon.species.growth_rate.name}</td>
+                </tr>
+                <tr>
+                  <td>Generation</td>
+                  <td>${pokemon.species.generation.name}</td>
+                </tr>
+                <tr>
+                  <td>Evolves from</td>
+                  <td>${pokemon.species.evolves_from_species}</td>
+                </tr>
+              </table>
             </div>
+            </div>
+            </div>
+
             <div class="nav-row">
-                <div class="nav-button" onclick="showPreviousPokemon(event, ${index})">
+                <button class="nav-button" onclick="showPreviousPokemon(event, ${pokemon.general.id})">
                   <img class="nav-icon" src="./assets/icons/arrow-back.svg" />
-                </div>
-                <div class="nav-button" onclick="showNextPokemon(event, ${index})">
+                </button>
+                <button class="nav-button" onclick="showNextPokemon(event, ${pokemon.general.id})">
                   <img class="nav-icon" src="./assets/icons/arrow-forward.svg" />
-                </div>
+                </button>
               </div>
           </div>
       </div>`;

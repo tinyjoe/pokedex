@@ -21,7 +21,6 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/data.js"></script>
     <script src="./scripts/layout.js"></script>
-    <script src="./scripts/tabs.js"></script>
   </head>
   <body onload="init()" id="main-content">
     <header>
@@ -31,8 +30,12 @@
           <h3>Pokedex</h3>
         </div>
         <div class="search-bar">
-          <input type="search" placeholder="Search for a Pokemon" />
-          <button class="btn-search">
+          <input
+            id="searchPokemons"
+            type="text"
+            placeholder="Search for a Pokemon"
+          />
+          <button class="btn-search" onclick="searchForPokemons()">
             <img class="icon-search" src="./assets/icons/search.svg" />
           </button>
         </div>
@@ -43,20 +46,16 @@
       <section class="header-img"></section>
       <section class="main-content">
         <div class="top-section">
-          <img class="header-logo" src="./assets/logo/logo_pokedex.svg" />
           <div>
             <h1>Gotta catch'em all!</h1>
             <h4>Der ultimative Guide über alle Pokemon</h4>
           </div>
-          <div class="search-bar">
-            <input type="search" placeholder="Search for a Pokemon" />
-            <button class="btn-search">
-              <img class="icon-search" src="./assets/icons/search.svg" />
-            </button>
-          </div>
         </div>
+        <div class="loader hidden" id="loader"></div>
         <section id="poke-cards" class="poke-grid"></section>
-        <button onclick="loadMorePokemons()">Show me more</button>
+        <button id="more-button" onclick="loadMorePokemons()">
+          Show me more
+        </button>
       </section>
     </main>
 
