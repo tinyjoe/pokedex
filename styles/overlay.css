@@ -94,10 +94,11 @@
   height: 375px;
   display: flex;
   flex-direction: column;
-  align-items: top;
+  align-items: center;
   justify-content: top;
-  overflow: scroll;
+  overflow-y: scroll;
   margin: 0px;
+  border: none;
 }
 
 .poke-tabs button {
@@ -106,44 +107,48 @@
   justify-content: center;
   width: 100%;
   height: 50px;
-  font-family: "robotoblack";
-  color: var(--bg-800);
-  font-size: 12pt;
-  text-align: center;
   border-top: 1px solid var(--bg-800);
   border-bottom: 1px solid var(--bg-800);
   border-radius: 0px;
+  cursor: pointer;
   background-color: white;
   margin: 0px;
+  padding: 10px 20px;
 }
 
 .poke-tabs button.active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 50px;
-  font-family: "robotolight";
-  color: var(--bg-500);
-  font-size: 12pt;
   text-align: center;
   background-color: var(--bg-200);
-  cursor: pointer;
   border-bottom: 1px solid var(--bg-800);
   border-radius: 0px;
 }
 
-.button:hover {
-  font-family: "robotoblack";
-  color: var(--bg-800);
+.poke-tabs button:hover {
+  background-color: var(--bg-200);
+}
+
+.tab-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tab-icon {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
 }
 
 .tab-content {
   display: flex;
+  width: 90%;
   flex-direction: column;
   align-items: flex-start;
   justify-content: top;
-  padding: 10px 60px 10px 60px;
+  padding: 10px 15px 10px 15px;
 }
 
 table {
@@ -169,6 +174,7 @@ td {
   font-size: 14pt;
   font-family: "roboto_monoregular", sans-serif;
   color: var(--bg-800);
+  text-transform: capitalize;
 }
 
 .stats-row {
@@ -217,4 +223,119 @@ progress::-webkit-progress-value {
   margin-bottom: 30px;
   border-radius: 0px;
   background-color: white;
+}
+
+@media (max-width: 1300px) {
+  .poke-detail-container {
+    width: 40%;
+    height: 90%;
+  }
+}
+
+@media (max-width: 1150px) {
+  .poke-detail-container {
+    width: 45%;
+    height: 90%;
+  }
+}
+
+@media (max-width: 950px) {
+  .poke-detail-container {
+    width: 50%;
+    height: 90%;
+  }
+}
+
+@media (max-width: 800px) {
+  .poke-detail-container {
+    width: 55%;
+    height: 90%;
+  }
+
+  td:first-child {
+    font-size: 11px;
+  }
+
+  td {
+    font-size: 13pt;
+  }
+}
+
+@media (max-width: 700px) {
+  .poke-detail-container {
+    width: 65%;
+    height: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .poke-detail-container {
+    width: 75%;
+    height: 90%;
+  }
+
+  .poke-tabs button {
+    width: 100%;
+    height: 40px;
+  }
+
+  .stats-row {
+    gap: 15px;
+  }
+
+  .stats-progress {
+    gap: 30px;
+  }
+
+  progress {
+    width: 180px;
+  }
+}
+
+@media (max-width: 500px) {
+  .poke-detail-container {
+    width: 85%;
+    height: 90%;
+  }
+
+  td:first-child {
+    font-size: 10px;
+  }
+
+  td {
+    font-size: 12pt;
+  }
+}
+
+@media (max-width: 400px) {
+  .poke-detail-container {
+    width: 95%;
+    height: 90%;
+  }
+
+  td {
+    font-size: 11pt;
+  }
+
+  .tab-content {
+    width: 85%;
+  }
+
+  .stats-row {
+    gap: 10px;
+  }
+
+  .stats-progress {
+    gap: 10px;
+  }
+
+  progress {
+    width: 150px;
+  }
+}
+
+@media (max-width: 350px) {
+  progress {
+    width: 100px;
+  }
 }

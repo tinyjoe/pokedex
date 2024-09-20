@@ -48,13 +48,20 @@
         <div class="top-section">
           <div>
             <h1>Gotta catch'em all!</h1>
-            <h4>Der ultimative Guide über alle Pokemon</h4>
+            <h5>Der ultimative Guide über alle Pokemon</h5>
           </div>
         </div>
         <div class="loader hidden" id="loader"></div>
+        <div id="search-result" class="search-result hidden">
+          Uuuups....we couldn't find any pokemons!<br />
+          Please try again
+        </div>
         <section id="poke-cards" class="poke-grid"></section>
         <button id="more-button" onclick="loadMorePokemons()">
           Show me more
+        </button>
+        <button id="reset-button" class="hidden" onclick="resetSearchResult()">
+          Clear search request
         </button>
       </section>
     </main>

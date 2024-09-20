@@ -16,13 +16,13 @@ function getPokeDetailTypesTemplate(pokeType) {
   </div>`;
 }
 
-function getPokemonCardTemplate(index, pokemon) {
-  return `<div class="poke-container bg-${pokemon.types[0].type.name}" onclick="showPokeDetailDialog(event, ${index})">
+function getPokemonCardTemplate(pokemon) {
+  return `<div class="poke-container bg-${pokemon.types[0].type.name}" onclick="showPokeDetailDialog(event, ${pokemon.id})">
           <div class="poke-card-bg">#${pokemon.id}</div>
             <img class="poke-img" src="${pokemon.sprites.front_default}" />
           <div class="poke-card-info">
             <h2>${pokemon.name}</h2>
-            <div id="poke-type-${index}" class="poke-type-row">
+            <div id="poke-type-${pokemon.id}" class="poke-type-row">
             </div>
           </div>
         </div>`;
@@ -32,13 +32,13 @@ function renderPokemonCards() {
   let card = document.getElementById("poke-cards");
   for (let i = 0; i < pokeArray.length; i++) {
     const pokemon = pokeArray[i];
-    card.innerHTML += getPokemonCardTemplate(i, pokemon);
-    getPokeCardTypes(i, pokemon.types);
+    card.innerHTML += getPokemonCardTemplate(pokemon);
+    getPokeCardTypes(pokemon.id, pokemon.types);
   }
 }
 
-function getPokeCardTypes(pokeIndex, types) {
-  let typeRow = document.getElementById(`poke-type-${pokeIndex}`);
+function getPokeCardTypes(id, types) {
+  let typeRow = document.getElementById(`poke-type-${id}`);
   for (let index = 0; index < types.length; index++) {
     const pokeType = types[index];
     typeRow.innerHTML += getPokeCardTypesTemplate(pokeType.type.name);
@@ -74,12 +74,13 @@ function getPokemonDetailTemplate(pokemon) {
               </div>
               <div class="poke-tabs">
                 <button
+                  class="active"
                   id="general-tab"
                   onclick="toggleTabContent(event, 'general')"
                 >
-                  General
+                  <div class="tab-row"><h4>General</h4><img id="general-chevron" class="tab-icon" src="./assets/icons/chevron-up.svg"/></div>
                 </button>
-                <div class="tab-content hidden" id="general">
+                <div class="tab-content" id="general">
               <table>
                 <tr>
                   <td>Height</td>
@@ -108,7 +109,7 @@ function getPokemonDetailTemplate(pokemon) {
                   id="stats-tab"
                   onclick="toggleTabContent(event, 'stats')"
                 >
-                  Stats
+                  <div class="tab-row"><h4>Stats</h4><img id="stats-chevron" class="tab-icon" src="./assets/icons/chevron-down.svg"/></div>
                 </button>
                 <div class="tab-content hidden" id="stats">
                 <div class="stats-row">
@@ -159,7 +160,7 @@ function getPokemonDetailTemplate(pokemon) {
                   id="species-tab"
                   onclick="toggleTabContent(event, 'species')"
                 >
-                  Species
+                  <div class="tab-row"><h4>Species</h4><img id="species-chevron" class="tab-icon" src="./assets/icons/chevron-down.svg"/></div>
                 </button>
               <div class="tab-content hidden" id="species">
                 <table>
@@ -182,10 +183,6 @@ function getPokemonDetailTemplate(pokemon) {
                 <tr>
                   <td>Generation</td>
                   <td>${pokemon.species.generation.name}</td>
-                </tr>
-                <tr>
-                  <td>Evolves from</td>
-                  <td>${pokemon.species.evolves_from_species}</td>
                 </tr>
               </table>
             </div>
