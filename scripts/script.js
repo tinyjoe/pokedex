@@ -2,7 +2,7 @@ let pokeCount = 20;
 
 async function init() {
   showOrHideLoader();
-  pokeArray = await getAllPokemons(20);
+  pokeArray = await getAllPokemons(pokeCount);
   showOrHideLoader();
   renderPokemonCards();
 }
@@ -141,9 +141,20 @@ async function renderSearchResults(value) {
     renderSuccessfulSearchString(searchResult);
     renderPokemonCards();
   } else {
-    showOrHideLoader();
-    searchResult.classList.remove("hidden");
+    renderEmptySearchResult();
   }
+}
+
+function renderEmptySearchResult() {
+  let searchResult = document.getElementById("search-result");
+  let loading = document.getElementById("loader");
+  let moreBtn = document.getElementById("more-button");
+  let resetBtn = document.getElementById("reset-button");
+  loading.classList.add("hidden");
+  moreBtn.classList.add("hidden");
+  searchResult.innerHTML = getEmptySearchResultString();
+  searchResult.classList.remove("hidden");
+  resetBtn.classList.remove("hidden");
 }
 
 function hideResetButton() {
@@ -172,7 +183,15 @@ async function searchInPokemons(value) {
       searchResult.push(pokemon);
     }
   }
+  searchResult = limitSearchResult(searchResult);
   return searchResult;
+}
+
+function limitSearchResult(resultArray) {
+  if (resultArray.length > 10) {
+    resultArray.splice(10);
+  }
+  return resultArray;
 }
 
 async function resetSearchResult() {

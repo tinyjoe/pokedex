@@ -53,6 +53,11 @@ function getPokeDetailsTypes(types) {
   }
 }
 
+function getEmptySearchResultString() {
+  return `Uuuups....we couldn't find any pokemons!<br />
+          Please try again`;
+}
+
 function clearPokeCards() {
   let card = document.getElementById("poke-cards");
   card.innerHTML = "";
