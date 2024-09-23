@@ -1,10 +1,10 @@
-let pokeCount = 20;
+let pokeCount = 1;
 
 async function init() {
   showOrHideLoader();
-  pokeArray = await getAllPokemons(pokeCount);
+  pokeArray = await getAllPokemons(20);
   showOrHideLoader();
-  renderPokemonCards();
+  renderPokemonCards(pokeArray);
 }
 
 function showOrHideLoader() {
@@ -17,10 +17,9 @@ function showOrHideLoader() {
 async function loadMorePokemons() {
   showOrHideLoader();
   pokeCount += 20;
-  clearPokeCards();
-  pokeArray = await getAllPokemons(pokeCount);
+  let pokemons = await getMorePokemons(pokeCount);
   showOrHideLoader();
-  renderPokemonCards();
+  renderPokemonCards(pokemons);
 }
 
 function closePokeDetailDialog(event) {
@@ -119,15 +118,20 @@ function showPreviousPokemon(event, id) {
 }
 
 function searchForPokemons() {
-  let searchValue = document.getElementById("searchPokemons").value;
+  let message = document.getElementById("message");
+  let searchForm = document.getElementById("search-form");
+  let searchInput = document.getElementById("searchPokemons");
+  let searchValue = searchInput.value;
   let card = document.getElementById("poke-cards");
   card.innerHTML = "";
-  if (searchValue.length >= 3) {
+  if (searchValue.length > 3) {
     renderSearchResults(searchValue);
   } else {
     alert("The search expression must be at least 3 letters long.");
+    renderPokemonCards(pokeArray);
   }
-  searchValue = " ";
+  message.innerHTML = "";
+  searchForm.reset();
 }
 
 async function renderSearchResults(value) {
@@ -139,7 +143,7 @@ async function renderSearchResults(value) {
   if (pokeArray.length != 0) {
     showOrHideLoader();
     renderSuccessfulSearchString(searchResult);
-    renderPokemonCards();
+    renderPokemonCards(pokeArray);
   } else {
     renderEmptySearchResult();
   }
@@ -175,11 +179,12 @@ function renderSuccessfulSearchString(result) {
 }
 
 async function searchInPokemons(value) {
-  let pokemons = await getAllPokemons(1000);
+  let pokemonNames = await getAllPokemonNames();
   let searchResult = [];
-  for (let i = 0; i < pokemons.length; i++) {
-    const pokemon = pokemons[i];
-    if (pokemon.name.includes(value)) {
+  for (let i = 0; i < pokemonNames.length; i++) {
+    const name = pokemonNames[i];
+    if (name.includes(value)) {
+      let pokemon = await getSinglePokemon(name);
       searchResult.push(pokemon);
     }
   }
@@ -199,7 +204,7 @@ async function resetSearchResult() {
   showOrHideLoader();
   clearPokeCards();
   pokeArray = await getAllPokemons(20);
-  renderPokemonCards();
+  renderPokemonCards(pokeArray);
   showOrHideLoader();
 }
 
@@ -210,4 +215,13 @@ function resetButtonsAndText() {
   moreBtn.classList.remove("hidden");
   resetBtn.classList.add("hidden");
   searchResult.classList.add("hidden");
+}
+
+function handleKeyUp(obj) {
+  let message = document.getElementById("message");
+  if (obj.value.length <= 3) {
+    message.innerHTML = "Search request too short";
+  } else {
+    message.innerHTML = "";
+  }
 }

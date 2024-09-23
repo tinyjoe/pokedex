@@ -1,6 +1,6 @@
 function getPokeCardTypesTemplate(pokeType) {
   return `<div class="poke-type-icon bg-${pokeType}">
-    <img class="type-icon" src="../assets/icons/${pokeType}.svg"/>
+    <img class="type-icon" src="./assets/icons/${pokeType}.svg"/>
   </div>`;
 }
 
@@ -9,7 +9,7 @@ function getPokeDetailTypesTemplate(pokeType) {
     <div class="poke-type-icon bg-${pokeType}">
       <img
         class="type-icon"
-        src="../assets/icons/${pokeType}.svg"
+        src="./assets/icons/${pokeType}.svg"
       />
     </div>
     <p class="small-info">${pokeType}</p>
@@ -28,10 +28,10 @@ function getPokemonCardTemplate(pokemon) {
         </div>`;
 }
 
-function renderPokemonCards() {
+function renderPokemonCards(array) {
   let card = document.getElementById("poke-cards");
-  for (let i = 0; i < pokeArray.length; i++) {
-    const pokemon = pokeArray[i];
+  for (let i = 0; i < array.length; i++) {
+    const pokemon = array[i];
     card.innerHTML += getPokemonCardTemplate(pokemon);
     getPokeCardTypes(pokemon.id, pokemon.types);
   }

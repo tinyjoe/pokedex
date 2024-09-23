@@ -88,6 +88,14 @@ label,
   text-transform: uppercase;
 }
 
+.error {
+  height: 10px;
+  text-align: start;
+  font-size: 12px;
+  font-family: "robotolight", sans-serif;
+  color: red;
+}
+
 .details {
   text-align: start;
   font-size: 14pt;
@@ -106,7 +114,8 @@ label,
   }
 
   label,
-  .small-info {
+  .small-info,
+  .error {
     font-size: 11px;
   }
 
@@ -135,7 +144,8 @@ label,
   }
 
   label,
-  .small-info {
+  .small-info,
+  .error {
     font-size: 10px;
   }
 

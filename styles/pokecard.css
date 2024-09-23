@@ -25,6 +25,7 @@
   height: 310px;
   box-shadow: 4px 4px 10px #8596a65b;
   cursor: pointer;
+  margin: -10px;
 }
 
 .poke-card-bg {
@@ -32,7 +33,7 @@
   width: 100%;
   height: 100%;
   font-family: "roboto_monoregular";
-  font-size: 75pt;
+  font-size: 60pt;
   color: #ffffff39;
   align-items: top;
   justify-content: flex-end;
@@ -91,5 +92,9 @@
   .poke-container {
     width: 250px;
     height: 250px;
+  }
+
+  .poke-card-bg {
+    font-size: 50pt;
   }
 }
