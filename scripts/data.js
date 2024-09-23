@@ -36,9 +36,9 @@ async function getMorePokemons(start) {
 
 async function getAllPokemonNames() {
   let pokeNamesArray = [];
-  let pokeResponse = await fetch(BASE_URL + `pokemon/?limit=1302&offset=0`);
+  let pokeResponse = await fetch(BASE_URL + `pokemon/?limit=1000&offset=0`);
   let pokeResult = await pokeResponse.json();
-  for (let i = 0; i < 1302; i++) {
+  for (let i = 0; i < 1000; i++) {
     const name = pokeResult.results[i].name;
     pokeNamesArray.push(name);
   }
