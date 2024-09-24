@@ -200,6 +200,8 @@ function limitSearchResult(resultArray) {
 }
 
 async function resetSearchResult() {
+  let message = document.getElementById("message");
+  message.innerHTML = "";
   resetButtonsAndText();
   showOrHideLoader();
   clearPokeCards();
