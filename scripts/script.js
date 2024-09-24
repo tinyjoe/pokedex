@@ -225,3 +225,14 @@ function handleKeyUp(obj) {
     message.innerHTML = "";
   }
 }
+
+function triggerEnterKey(event) {
+  let message = document.getElementById("message");
+  let searchBtn = document.getElementById("btn-search");
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    searchBtn.onclick();
+    message.innerHTML = "";
+    return true;
+  }
+}

@@ -31,15 +31,19 @@
         </div>
         <div class="search">
           <div class="search-bar">
-            <form id="search-form">
+            <form id="search-form" onkeypress="triggerEnterKey(event)">
               <input
                 id="searchPokemons"
                 type="text"
                 placeholder="Search for a Pokemon"
-                onkeyup="handleKeyUp(this)"
+                onkeyup="handleKeyUp(this, event)"
               />
             </form>
-            <button class="btn-search" onclick="searchForPokemons()">
+            <button
+              id="btn-search"
+              class="btn-search"
+              onclick="searchForPokemons()"
+            >
               <img class="icon-search" src="./assets/icons/search.svg" />
             </button>
           </div>
